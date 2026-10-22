@@ -39,3 +39,16 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+# Environment secrets
+.env*
+!.env.example
+
+# Dependencies and build output
+node_modules/
+.next/
+
+# Session cookies and local test files
+cookies.txt
+test-db.cjs
