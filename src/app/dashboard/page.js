@@ -131,6 +131,49 @@ export default function DashboardPage() {
         <p><strong>Organization:</strong> {organization.organizationName}</p>
         <p><strong>Organization ID:</strong> {organization.organizationId}</p>
         <p><strong>Email:</strong> {organization.email}</p>
+        
+<section
+  style={{
+    marginTop: "20px",
+    padding: "18px",
+    borderRadius: "10px",
+    border: "1px solid #bfdbfe",
+    background: "#eff6ff",
+  }}
+>
+  <h3>Subscription & Free Trial</h3>
+
+  <p>
+    <strong>Status:</strong>{" "}
+    {organization.subscriptionStatus === "trial"
+      ? "Free Trial"
+      : organization.subscriptionStatus === "active"
+        ? "Active Subscription"
+        : "Trial Expired"}
+  </p>
+
+  {organization.trialEnd && (
+    <p>
+      <strong>Trial expiry date:</strong>{" "}
+      {new Date(organization.trialEnd).toLocaleDateString()}
+    </p>
+  )}
+
+  {organization.subscriptionStatus === "trial" && (
+    <p>
+      <strong>Days remaining:</strong>{" "}
+      {organization.daysRemaining}
+    </p>
+  )}
+
+  {organization.subscriptionStatus === "expired" && (
+    <p>
+      Your free trial has ended. Contact your administrator
+      to activate a subscription.
+    </p>
+  )}
+</section>
+
 
         <button
           type="button"

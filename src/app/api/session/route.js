@@ -2,6 +2,7 @@
 import { NextResponse, connection } from "next/server";
 import { cookies } from "next/headers";
 import jwt from "jsonwebtoken";
+import { getMasterPool } from "@/lib/db.js";
 
 export async function GET() {
   await connection();
@@ -23,11 +24,51 @@ export async function GET() {
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
+    const result = await getMasterPool().query(
+      `SELECT organization_id, organization_name, email,
+              trial_start, trial_end, subscription_status
+       FROM master_user
+       WHERE organization_id = $1
+       LIMIT 1`,
+      [decoded.organizationId]
+    );
+
+    if (result.rowCount !== 1) {
+      throw new Error("Organization not found.");
+    }
+
+    const org = result.rows[0];
+    const now = Date.now();
+    const trialEnd = org.trial_end
+      ? new Date(org.trial_end).getTime()
+      : null;
+
+    let subscriptionStatus = String(
+      org.subscription_status || ""
+    ).toLowerCase();
+
+    if (
+      subscriptionStatus === "trial" &&
+      (!trialEnd || trialEnd <= now)
+    ) {
+      subscriptionStatus = "expired";
+    }
+
+    const daysRemaining =
+      subscriptionStatus === "trial"
+        ? Math.max(0, Math.ceil((trialEnd - now) / 86400000))
+        : 0;
+
     return NextResponse.json({
       success: true,
       organization: {
-        organizationId: decoded.organizationId,
-        organizationName: decoded.organizationName,
+        organizationId: org.organization_id,
+        organizationName: org.organization_name,
+        email: org.email,
+        subscriptionStatus,
+        trialStart: org.trial_start,
+        trialEnd: org.trial_end,
+        daysRemaining,
       },
       user: {
         id: decoded.userId ?? null,
