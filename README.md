@@ -1,4 +1,4 @@
-\# AmenityHub – Multi-Tenant Amenity Management System
+\# **AmenityHub – Multi-Tenant Amenity Management System**
 
 
 
@@ -6,55 +6,55 @@ AmenityHub is a web application designed to help organizations manage amenities,
 
 
 
-\## Features
+\## **Features**
 
 
 
-\- \*\*Organization Registration and Login:\*\* Organization-specific registration and authentication.
+\- \*\***Organization Registration and Login:**\*\* Organization-specific registration and authentication.
 
-\- \*\*Multi-Tenant Database Architecture:\*\* A master database stores organization information, while each organization uses its own tenant database.
+\- \*\***Multi-Tenant Database Architecture:**\*\* A master database stores organization information, while each organization uses its own tenant database.
 
-\- \*\*Free Trial:\*\* 14-day trial period with subscription status displayed on the dashboard.
+\- \*\***Free Trial:**\*\* 14-day trial period with subscription status displayed on the dashboard.
 
-\- \*\*Amenity Management:\*\* Create, view, update, delete, and publish amenities, subject to permissions.
+\- \*\***Amenity Management:**\*\* Create, view, update, delete, and publish amenities, subject to permissions.
 
-\- \*\*Booking Management:\*\* View and manage booking history based on assigned permissions.
+\- \*\***Booking Management:**\*\* View and manage booking history based on assigned permissions.
 
-\- \*\*Employee Management:\*\* Maintain employee records.
+\- \*\***Employee Management:**\*\* Maintain employee records.
 
-\- \*\*User and Role Management:\*\* Support role-based access for Super Admin, Operation Manager, and Receptionist.
+\- \*\***User and Role Management:**\*\* Support role-based access for Super Admin, Operation Manager, and Receptionist.
 
-\- \*\*Secure Authentication:\*\* Password hashing and session authentication.
-
-
-
-\## Technology Stack
+\- \*\***Secure Authentication:**\*\* Password hashing and session authentication.
 
 
 
-\- \*\*Frontend:\*\* Next.js, React, JavaScript
-
-\- \*\*Backend:\*\* Next.js API Routes
-
-\- \*\*Database:\*\* PostgreSQL using Neon
-
-\- \*\*Authentication:\*\* JSON Web Tokens (JWT), HTTP-only session cookies
-
-\- \*\*Password Security:\*\* bcrypt
-
-\- \*\*Version Control:\*\* Git and GitHub
+\## **Technology Stack**
 
 
 
-\## Database Architecture
+\- \*\***Frontend:**\*\* Next.js, React, JavaScript
+
+\- \*\***Backend:**\*\* Next.js API Routes
+
+\- \*\***Database:**\*\* PostgreSQL using Neon
+
+\- \*\***Authentication:**\*\* JSON Web Tokens (JWT), HTTP-only session cookies
+
+\- \*\***Password Security:**\*\* bcrypt
+
+\- \*\***Version Control:**\*\* Git and GitHub
 
 
 
-\### Master Database
+\## **Database Architecture**
 
 
 
-Stores organization-level information, including:
+**### Master Database**
+
+
+
+**Stores organization-level information, including:**
 
 
 
@@ -72,11 +72,11 @@ Stores organization-level information, including:
 
 
 
-\### Tenant Database
+\### **Tenant Database**
 
 
 
-Stores organization-specific application data, including:
+**Stores organization-specific application data, including:**
 
 
 
@@ -92,7 +92,7 @@ Stores organization-specific application data, including:
 
 
 
-\## User Roles
+\## **User Roles**
 
 
 
@@ -132,7 +132,7 @@ Actual permissions depend on the application's implemented authorization rules.
 
 
 
-1\. Clone the repository:
+**1. Clone the repository:**
 
 
 
@@ -144,7 +144,7 @@ Actual permissions depend on the application's implemented authorization rules.
 
 
 
-2\. Open the project directory:
+**2. Open the project directory:**
 
 
 
@@ -156,7 +156,7 @@ Actual permissions depend on the application's implemented authorization rules.
 
 
 
-3\. Install dependencies:
+**3. Install dependencies:**
 
 
 
@@ -168,7 +168,7 @@ Actual permissions depend on the application's implemented authorization rules.
 
 
 
-4\. Create a `.env.local` file in the project root and configure the required environment variables:
+**4. Create a `.env.local` file in the project root and configure the required environment variables:**
 
 
 
@@ -220,7 +220,7 @@ npm start
 
 
 
-\## Subscription and Trial
+\## **Subscription and Trial**
 
 
 
@@ -228,7 +228,7 @@ New organizations are intended to receive a 14-day free trial. The dashboard dis
 
 
 
-\## Project Status
+\## **Project Status**
 
 
 
@@ -236,7 +236,7 @@ This project is under development. Validate authentication, tenant isolation, da
 
 
 
-\## Author
+\## **Author**
 
 
 
