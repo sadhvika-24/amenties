@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS master_users (
+  id SERIAL PRIMARY KEY,
+  org_id VARCHAR(30) UNIQUE NOT NULL,
+  org_name VARCHAR(100) NOT NULL,
+  email VARCHAR(150) NOT NULL,
+  password_hash TEXT NOT NULL,
+  database_name VARCHAR(40) UNIQUE NOT NULL,
+  subscription VARCHAR(20) NOT NULL DEFAULT 'trial',
+  trial_period_ends TIMESTAMPTZ NOT NULL DEFAULT (NOW() + INTERVAL '14 days'),
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
